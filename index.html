@@ -218,25 +218,18 @@
                 </div>
             </div>
             
-           <!-- Abstract Cinematic Element (Fixed pixel box, scaled) -->
-<div class="order-1 lg:order-2 flex justify-center lg:justify-end reveal delay-200">
-  <div class="glass-card rounded-2xl overflow-hidden relative"
-       style="width: 1980px; height: 1920px; max-width: 100%; display:block;">
-
-    <video src="preview.mp4"
-           autoplay
-           loop
-           muted
-           playsinline
-           class="w-full h-full object-cover"
-           style="object-position: right center;">
-    </video>
-
-    <span class="absolute bottom-4 left-4 font-mono text-xs text-fashion-3 uppercase tracking-widest">
-      RENDER_PREVIEW_V2.0
-    </span>
-  </div>
-</div>
+          /* paste into your <style> area */
+.glass-card.video-polish {
+  box-shadow: 0 30px 80px -30px rgba(0,0,0,0.7);
+  border: 1px solid rgba(255,255,255,0.04);
+  transition: transform .45s ease, box-shadow .45s ease;
+}
+.glass-card.video-polish:hover { transform: translateY(-6px); box-shadow:0 40px 120px -30px rgba(0,0,0,0.75); }
+.glass-card.video-polish::after {
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 45%, rgba(0,0,0,0.32) 100%);
+  border-radius:inherit;
+}
 
         <!-- Scroll Indicator -->
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
