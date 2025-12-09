@@ -218,26 +218,26 @@
                 </div>
             </div>
             
-            <!-- Abstract Cinematic Element (Video Replacement) -->
+           <!-- Abstract Cinematic Element (Responsive, recommended) -->
 <div class="order-1 lg:order-2 flex justify-center lg:justify-end reveal delay-200">
-    <div class="glass-card rounded-2xl overflow-hidden relative"
-         style="width: 1980px; height: 1920px; max-width: 100%;">
+  <div class="glass-card rounded-2xl overflow-hidden relative"
+       style="width: min(46vw, 820px); height: min(86vh, 920px); max-width: 100%;">
 
-        <video src="preview.mp4"
-               autoplay
-               loop
-               muted
-               playsinline
-               class="w-full h-full object-cover">
-        </video>
+    <video src="preview.mp4"
+           autoplay
+           loop
+           muted
+           playsinline
+           class="w-full h-full object-cover"
+           style="object-position: center top;">
+    </video>
 
-        <span class="absolute bottom-4 left-4 font-mono text-xs text-fashion-3 uppercase tracking-widest">
-            RENDER_PREVIEW_V2.0
-        </span>
-    </div>
+    <span class="absolute bottom-4 left-4 font-mono text-xs text-fashion-3 uppercase tracking-widest">
+      RENDER_PREVIEW_V2.0
+    </span>
+  </div>
 </div>
 
-        
         <!-- Scroll Indicator -->
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
             <i data-lucide="arrow-down" class="text-fashion-3 w-6 h-6"></i>
