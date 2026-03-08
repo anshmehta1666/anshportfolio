@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apixelize — Performance CGI Ads for Scaling Brands</title>
-    <meta name="description" content="We engineer performance-driven CGI creatives designed to improve hook retention, engagement, and conversion rates for D2C brands running Meta ads.">
+    <title>Apixelize — Creative Systems for Scaling D2C Brands</title>
+    <meta name="description" content="We combine brand identity, conversion-focused websites, creative strategy, and performance-driven CGI to build marketing assets engineered for real growth.">
     
-    <meta property="og:title" content="Apixelize — Performance CGI Ads">
-    <meta property="og:description" content="Data-driven visual systems and CGI built for scaling D2C brands.">
+    <meta property="og:title" content="Apixelize — Creative Systems">
+    <meta property="og:description" content="We combine brand identity, conversion-focused websites, creative strategy, and performance-driven CGI to build marketing assets engineered for real growth.">
     <meta property="og:image" content="Apixelizelogo.png">
     <link rel="icon" type="image/png" href="Apixelizelogo.png">
 
@@ -151,6 +151,167 @@
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
         }
+
+        /* Task 1 - Form Icon Visibility Fix */
+        input[type="radio"], input[type="checkbox"] {
+            accent-color: #ffffff !important;
+            transform: scale(1.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        input[type="radio"]:checked, input[type="checkbox"]:checked {
+            box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4) !important;
+            border-color: #ffffff !important;
+            outline: 1px solid rgba(255, 255, 255, 0.5);
+            outline-offset: 2px;
+        }
+
+        /* Task 2 & 3 - Chatbot Styles */
+        #chat-widget {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        #chat-window {
+            width: 350px;
+            max-width: calc(100vw - 48px);
+            height: 480px;
+            max-height: calc(100vh - 100px);
+            background-color: #0D0D0D;
+            border: 1px solid #404040;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        #chat-window.show {
+            display: flex;
+            transform: translateY(0);
+            opacity: 1;
+        }
+        #chat-header {
+            padding: 16px;
+            background-color: #1a1a1a;
+            border-bottom: 1px solid #404040;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #chat-messages {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .chat-msg {
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+        .chat-msg.user {
+            background-color: #F2F2F2;
+            color: #0D0D0D;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+        .chat-msg.bot {
+            background-color: #2a2a2a;
+            color: #F2F2F2;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+        #chat-input-area {
+            padding: 12px 16px;
+            border-top: 1px solid #404040;
+            display: flex;
+            gap: 8px;
+            background-color: #0D0D0D;
+        }
+        #chat-input {
+            flex: 1;
+            background-color: #1a1a1a;
+            border: 1px solid #404040;
+            border-radius: 24px;
+            padding: 10px 16px;
+            color: #F2F2F2;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        #chat-input:focus {
+            border-color: #737373;
+        }
+        #chat-send-btn {
+            background-color: #F2F2F2;
+            color: #0D0D0D;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        #chat-send-btn:hover {
+            transform: scale(1.1);
+        }
+        #chat-toggle {
+            background-color: #F2F2F2;
+            color: #0D0D0D;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        #chat-toggle:hover {
+            transform: scale(1.08);
+        }
+        /* Thinking animation dots */
+        .typing-dots {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            height: 20px;
+        }
+        .typing-dots span {
+            width: 6px;
+            height: 6px;
+            background-color: #BFBFBF;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        .typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+        /* Custom scrollbar for chat window */
+        #chat-messages::-webkit-scrollbar { width: 4px; }
+        #chat-messages::-webkit-scrollbar-thumb { background: #404040; border-radius: 4px; }
     </style>
 </head>
 
@@ -177,13 +338,13 @@
             <div class="container mx-auto relative z-10">
                 <div class="max-w-4xl mt-8 md:mt-12">
                     <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-4 sm:mb-6 tracking-tight">
-                        High-Converting <br /> 
+                        Creative Systems <br /> 
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">
-                            CGI Ads for Scaling Brands.
+                            for Scaling D2C Brands.
                         </span>
                     </h1>
                     <p class="text-fashion-2 text-base sm:text-lg md:text-xl font-normal max-w-lg mb-8 sm:mb-10 leading-relaxed">
-                        We engineer performance-driven CGI creatives designed to improve hook retention, engagement, and conversion rates for D2C brands running Meta ads.
+                        We combine brand identity, conversion-focused websites, creative strategy, and performance-driven CGI to build marketing assets engineered for real growth.
                     </p>
                     <div class="flex flex-col sm:flex-row flex-wrap gap-4">
                         <a href="#work" class="px-8 py-4 bg-white text-black text-xs uppercase tracking-widest hover:bg-gray-200 transition-colors rounded-full font-bold min-h-[48px] inline-flex items-center justify-center">
@@ -973,6 +1134,28 @@ The visual identity blends botanical softness with subtle clinical cues. Clean t
         </footer>
     </div>
 
+    <div id="chat-widget">
+        <div id="chat-window">
+            <div id="chat-header">
+                <span class="font-display font-semibold text-white">Apixelize Assistant</span>
+                <button id="chat-close" class="text-fashion-2 hover:text-white transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div id="chat-messages">
+                <div class="chat-msg bot">Hello 👋 I'm the Apixelize assistant.<br>How can I help you today?</div>
+            </div>
+            <div id="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off">
+                <button id="chat-send-btn">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+        <button id="chat-toggle">
+            <i data-lucide="message-square" class="w-6 h-6"></i>
+        </button>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
@@ -1242,6 +1425,123 @@ The visual identity blends botanical softness with subtle clinical cues. Clean t
             });
         };
         initThreeJS();
+
+        // --- Chatbot Interactive Logic ---
+        const chatToggle = document.getElementById('chat-toggle');
+        const chatClose = document.getElementById('chat-close');
+        const chatWindow = document.getElementById('chat-window');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const chatSendBtn = document.getElementById('chat-send-btn');
+
+        function toggleChatWidget() {
+            if (chatWindow.classList.contains('show')) {
+                chatWindow.classList.remove('show');
+                setTimeout(() => chatWindow.style.display = 'none', 300);
+            } else {
+                chatWindow.style.display = 'flex';
+                // Trigger reflow to apply transition
+                void chatWindow.offsetWidth;
+                chatWindow.classList.add('show');
+                chatInput.focus();
+            }
+        }
+
+        chatToggle.addEventListener('click', toggleChatWidget);
+        chatClose.addEventListener('click', toggleChatWidget);
+
+        function scrollChatToBottom() {
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function appendMessage(text, senderClass) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `chat-msg ${senderClass}`;
+            msgDiv.innerHTML = text.replace(/\n/g, '<br>');
+            chatMessages.appendChild(msgDiv);
+            scrollChatToBottom();
+            lucide.createIcons();
+        }
+
+        function showThinkingIndicator() {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'chat-msg bot';
+            msgDiv.id = 'thinking-indicator';
+            msgDiv.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+            chatMessages.appendChild(msgDiv);
+            scrollChatToBottom();
+        }
+
+        function removeThinkingIndicator() {
+            const indicator = document.getElementById('thinking-indicator');
+            if (indicator) {
+                indicator.remove();
+            }
+        }
+
+        function determineBotResponse(inputText) {
+            const lowerText = inputText.toLowerCase();
+
+            if (/\b(hello|hi|hey|good morning|good evening)\b/.test(lowerText)) {
+                return "Hello 👋 I'm the Apixelize assistant.\nHow can I help you today?";
+            }
+            if (/\b(services|what do you do|offer|agency)\b/.test(lowerText)) {
+                return "We help brands grow using creative systems including:\n• Brand Identity\n• UX/UI Website Design\n• Creative Strategy\n• Performance CGI Ads\n• Commercial Advertisement";
+            }
+            if (/\b(cgi|3d|3d ads|product cgi)\b/.test(lowerText)) {
+                return "We create high-end CGI ads designed to capture attention and improve advertising performance.";
+            }
+            if (/\b(video|product video|commercial video|ads video)\b/.test(lowerText)) {
+                return "We produce cinematic commercial and product videos designed to increase engagement and conversions.";
+            }
+            if (/\b(logo|branding|brand identity)\b/.test(lowerText)) {
+                return "We design strategic brand identity systems including logo design, visual language, and brand guidelines.";
+            }
+            if (/\b(website|web design|ui|ux|landing page)\b/.test(lowerText)) {
+                return "We design conversion-focused UX/UI websites built to transform visitors into customers.";
+            }
+            if (/\b(strategy|creative strategy|ad strategy)\b/.test(lowerText)) {
+                return "We develop creative strategies combining brand psychology, storytelling, and performance marketing.";
+            }
+            if (/\b(portfolio|work|projects|examples)\b/.test(lowerText)) {
+                return "You can explore our case studies in the Selected Work section of the website.";
+            }
+            if (/\b(price|pricing|cost|budget)\b/.test(lowerText)) {
+                return "Project pricing depends on scope, but most projects typically start from ₹25K+.\nFor an accurate estimate, apply for a Creative Strategy Audit.";
+            }
+            if (/\b(timeline|delivery|how long|time)\b/.test(lowerText)) {
+                return "Most creative and CGI projects are delivered within 4–7 days depending on complexity.";
+            }
+            if (/\b(contact|call|audit|consultation|book)\b/.test(lowerText)) {
+                return "You can apply for a Creative Strategy Audit using the booking button on this page.";
+            }
+
+            return "That's a great question.\nFor detailed discussion about your brand, the best step is applying for a Creative Strategy Audit.";
+        }
+
+        function processUserMessage() {
+            const userText = chatInput.value.trim();
+            if (!userText) return;
+
+            appendMessage(userText, 'user');
+            chatInput.value = '';
+
+            showThinkingIndicator();
+
+            setTimeout(() => {
+                removeThinkingIndicator();
+                const responseText = determineBotResponse(userText);
+                appendMessage(responseText, 'bot');
+            }, 1000); // 1 second thinking delay
+        }
+
+        chatSendBtn.addEventListener('click', processUserMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                processUserMessage();
+            }
+        });
+
     </script>
 </body>
 </html>
