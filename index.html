@@ -12,40 +12,49 @@
     <meta property="og:image" content="Apixelizelogo.png">
     <link rel="icon" type="image/png" href="Apixelizelogo.png">
 
+    <link rel="preconnect" href="https://api.fontshare.com">
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
     <link href="https://api.fontshare.com/v2/css?f[]=boska@700&display=swap" rel="stylesheet">
 
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
-    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Satoshi', 'sans-serif'],
-                        display: ['Satoshi', 'sans-serif'],
-                        serif: ['Boska', 'serif'],
-                    },
-                    colors: {
-                        fashion: {
-                            1: '#F2F2F2',
-                            2: '#BFBFBF',
-                            3: '#737373',
-                            4: '#404040',
-                            5: '#0D0D0D',
+        window.tailwind = {
+            config: {
+                darkMode: 'class',
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ['Satoshi', 'sans-serif'],
+                            display: ['Satoshi', 'sans-serif'],
+                            serif: ['Boska', 'serif'],
+                        },
+                        colors: {
+                            fashion: {
+                                1: '#F2F2F2',
+                                2: '#BFBFBF',
+                                3: '#737373',
+                                4: '#404040',
+                                5: '#0D0D0D',
+                            }
                         }
                     }
                 }
             }
-        }
+        };
     </script>
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    
     <style>
         /* Global Styles */
         body {
             background-color: #0D0D0D;
             color: #F2F2F2;
+        }
+
+        /* FIX 4: Enable GPU Rendering for heavy media */
+        img, video {
+            will-change: transform;
         }
 
         /* Home Forms */
@@ -316,7 +325,7 @@
         
         <nav class="fixed w-full z-50 mix-blend-difference py-4 sm:py-5 md:py-6 px-4 sm:px-6 md:px-12 flex justify-between items-center transition-all duration-300" id="navbar-home">
             <a href="#" onclick="window.scrollTo(0,0); return false;" class="inline-block transition-transform hover:scale-105 min-h-[48px] flex items-center">
-                <img src="Apixelizelogo.png" alt="Apixelize Logo" class="h-14 md:h-16 lg:h-20 w-auto object-contain">
+                <img src="Apixelizelogo.png" alt="Apixelize Logo" loading="lazy" class="h-14 md:h-16 lg:h-20 w-auto object-contain">
             </a>
             <div class="hidden md:flex gap-8 text-sm font-medium uppercase tracking-widest text-gray-300">
                 <a href="#work" class="hover:text-white transition-colors min-h-[48px] flex items-center">Work</a>
@@ -386,7 +395,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 md:gap-16">
                     <div class="group cursor-pointer">
                         <div class="aspect-[4/5] bg-fashion-4 overflow-hidden mb-6 relative rounded-sm">
-                            <img src="aloha.jpg" alt="Aloha Campaign" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out opacity-80 group-hover:opacity-100">
+                            <img src="aloha.jpg" alt="Aloha Campaign" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out opacity-80 group-hover:opacity-100">
                             <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
                         </div>
                         <div class="flex justify-between items-start mb-4">
@@ -407,7 +416,7 @@
 
                     <div class="group cursor-pointer md:mt-24">
                         <div class="aspect-[4/5] bg-fashion-4 overflow-hidden mb-6 relative rounded-sm">
-                            <img src="CaseCartel.png" alt="Kicks Footwear" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out opacity-80 group-hover:opacity-100">
+                            <img src="CaseCartel.png" alt="Kicks Footwear" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out opacity-80 group-hover:opacity-100">
                             <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
                         </div>
                         <div class="flex justify-between items-start mb-4">
@@ -518,6 +527,7 @@
                         <img 
                           src="founder.jpg" 
                           alt="Ansh Mehta - Founder of Apixelize"
+                          loading="lazy"
                           class="relative w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 z-10"
                         />
                     </div>
@@ -606,7 +616,7 @@
         
         <nav class="fixed w-full z-50 mix-blend-difference py-4 sm:py-5 md:py-6 px-4 sm:px-6 md:px-12 flex justify-between items-center transition-all duration-300" id="navbar-portfolio">
             <a href="#" onclick="switchView('home'); return false;" class="inline-block transition-transform hover:scale-105 min-h-[48px] flex items-center">
-                <img src="Apixelizelogo.png" alt="Apixelize Logo" class="h-14 md:h-16 lg:h-20 w-auto object-contain">
+                <img src="Apixelizelogo.png" alt="Apixelize Logo" loading="lazy" class="h-14 md:h-16 lg:h-20 w-auto object-contain">
             </a>
             <div class="flex gap-4 sm:gap-8 text-sm font-medium uppercase tracking-widest text-gray-300">
                 <a href="#" onclick="switchView('home'); return false;" class="hover:text-white transition-colors min-h-[48px] inline-flex items-center">Home</a>
@@ -652,10 +662,10 @@
 
                 <div class="project-media grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
                     <div class="img-zoom-container aspect-[4/5] bg-fashion-4">
-                        <img src="botaniva1.png" class="w-full h-full object-cover"></video>
+                        <img src="botaniva1.png" loading="lazy" class="w-full h-full object-cover">
                     </div>
                     <div class="img-zoom-container aspect-[4/5] bg-fashion-4">
-                        <img src="botanica2.png" class="w-full h-full object-cover">
+                        <img src="botanica2.png" loading="lazy" class="w-full h-full object-cover">
                     </div>
                 </div>
             </section>
@@ -682,7 +692,7 @@
                         muted
                         loop
                         playsinline
-                        preload="metadata">
+                        preload="none">
                     </video>
                     <div class="z-10 text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] font-bold text-white/80 border border-white/20 bg-black/50 backdrop-blur-sm px-4 sm:px-6 py-2 sm:py-3 rounded-full pointer-events-none">
                         CGI Motion Active
@@ -712,18 +722,18 @@
                 
                 <div class="project-media w-full space-y-6 sm:space-y-8">
                     <div class="img-zoom-container rounded-sm bg-fashion-4 w-full overflow-hidden aspect-video relative">
-                        <img src="sdfggh.png" class="absolute inset-0 w-full h-full object-cover transition-all duration-700">
+                        <img src="sdfggh.png" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition-all duration-700">
                         <div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 text-[10px] sm:text-xs uppercase tracking-[0.1em] sm:tracking-[0.2em] font-bold text-white bg-black/50 px-3 sm:px-4 py-2 rounded-sm backdrop-blur-md">WebGL Interface</div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 sm:gap-8">
                         <div class="img-zoom-container aspect-square bg-fashion-4">
-                            <img src="Untitlexs.png" class="w-full h-full object-cover">
+                            <img src="Untitlexs.png" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="img-zoom-container aspect-square bg-fashion-4">
-                            <img src="Untitlefgd.png" class="w-full h-full object-cover">
+                            <img src="Untitlefgd.png" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="img-zoom-container aspect-square bg-fashion-4">
-                            <img src="Untitlejkf.png" class="w-full h-full object-cover">
+                            <img src="Untitlejkf.png" loading="lazy" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
@@ -745,16 +755,16 @@
 
                 <div class="project-media grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
                     <div class="img-zoom-container aspect-[9/16] overflow-hidden bg-black">
-                        <video src="rainbags.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline preload="metadata"></video>
+                        <video src="rainbags.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline preload="none"></video>
                     </div>
                     <div class="img-zoom-container aspect-[9/16] overflow-hidden bg-black">
-                        <video src="rainbagss.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline preload="metadata"></video>
+                        <video src="rainbagss.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline preload="none"></video>
                     </div>
                     <div class="img-zoom-container aspect-[9/16] overflow-hidden bg-black">
-                        <video src="rainbagd.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline preload="metadata"></video>
+                        <video src="rainbagd.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline preload="none"></video>
                     </div>
                     <div class="img-zoom-container aspect-[9/16] overflow-hidden bg-black">
-                        <video src="rainbagsr.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline preload="metadata"></video>
+                        <video src="rainbagsr.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline preload="none"></video>
                     </div>
                 </div>
             </section>
@@ -781,7 +791,7 @@
                         muted
                         loop
                         playsinline
-                        preload="metadata">
+                        preload="none">
                     </video>
                     <div class="z-10 text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] font-bold text-white/80 border border-white/20 bg-black/50 backdrop-blur-sm px-4 sm:px-6 py-2 sm:py-3 rounded-full pointer-events-none">
                         Play 3D Sequence
@@ -805,10 +815,10 @@
 
                 <div class="project-media grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
                     <div class="img-zoom-container aspect-square bg-fashion-4">
-                        <img src="org.jpg" class="w-full h-full object-cover">
+                        <img src="org.jpg" loading="lazy" class="w-full h-full object-cover">
                     </div>
                     <div class="img-zoom-container aspect-square bg-fashion-4">
-                        <img src="orgs.jpg" class="w-full h-full object-cover">
+                        <img src="orgs.jpg" loading="lazy" class="w-full h-full object-cover">
                     </div>
                 </div>
             </section>
@@ -829,17 +839,17 @@
 
                 <div class="project-media w-full space-y-6 sm:space-y-8">
                     <div class="aspect-video bg-neutral-900 rounded-sm overflow-hidden flex items-center justify-center img-zoom-container">
-                         <img src="casetels.png" class="w-full h-full object-cover">
+                         <img src="casetels.png" loading="lazy" class="w-full h-full object-cover">
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 sm:gap-8">
                         <div class="img-zoom-container aspect-square bg-fashion-4">
-                            <img src="casecartelsas.png" class="w-full h-full object-cover">
+                            <img src="casecartelsas.png" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="img-zoom-container aspect-square bg-fashion-4">
-                            <img src="casecartelbd.png" class="w-full h-full object-cover">
+                            <img src="casecartelbd.png" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="img-zoom-container aspect-square bg-fashion-4">
-                            <img src="CaseCartel.png" class="w-full h-full object-cover">
+                            <img src="CaseCartel.png" loading="lazy" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
@@ -861,39 +871,39 @@
 
                 <div class="project-media w-full space-y-6 sm:space-y-8">
                     <div class="img-zoom-container aspect-[1640/664] bg-fashion-4 overflow-hidden rounded-sm">
-                        <img src="cart1.PNG" class="w-full h-full object-cover">
+                        <img src="cart1.PNG" loading="lazy" class="w-full h-full object-cover">
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                         <div class="img-zoom-container aspect-[4/5] bg-fashion-4 overflow-hidden rounded-sm">
-                            <img src="cartx.png" class="w-full h-full object-cover">
+                            <img src="cartx.png" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="img-zoom-container aspect-[4/5] bg-fashion-4 overflow-hidden rounded-sm">
-                            <img src="carty.png" class="w-full h-full object-cover">
+                            <img src="carty.png" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="img-zoom-container aspect-[4/5] bg-fashion-4 overflow-hidden rounded-sm">
-                            <img src="cartz.PNG" class="w-full h-full object-cover">
+                            <img src="cartz.PNG" loading="lazy" class="w-full h-full object-cover">
                         </div>
                     </div>
                     
                     <div class="img-zoom-container aspect-[1640/664] bg-fashion-4 overflow-hidden rounded-sm">
-                        <img src="cart2.PNG" class="w-full h-full object-cover">
+                        <img src="cart2.PNG" loading="lazy" class="w-full h-full object-cover">
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                         <div class="img-zoom-container aspect-[4/5] bg-fashion-4 overflow-hidden rounded-sm">
-                            <img src="carta.PNG" class="w-full h-full object-cover">
+                            <img src="carta.PNG" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="img-zoom-container aspect-[4/5] bg-fashion-4 overflow-hidden rounded-sm">
-                            <img src="cartb.PNG" class="w-full h-full object-cover">
+                            <img src="cartb.PNG" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="img-zoom-container aspect-[4/5] bg-fashion-4 overflow-hidden rounded-sm">
-                            <img src="cartc.PNG" class="w-full h-full object-cover">
+                            <img src="cartc.PNG" loading="lazy" class="w-full h-full object-cover">
                         </div>
                     </div>
                     
                     <div class="img-zoom-container aspect-[1640/664] bg-fashion-4 overflow-hidden rounded-sm">
-                        <img src="cart3.PNG" class="w-full h-full object-cover">
+                        <img src="cart3.PNG" loading="lazy" class="w-full h-full object-cover">
                     </div>
                 </div>
             </section>
@@ -913,7 +923,7 @@
                 </div>
 
                 <div class="project-media aspect-video bg-neutral-800 rounded-sm img-zoom-container">
-                    <img src="https://images.unsplash.com/photo-1520694478166-daafa0fc37ce?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1520694478166-daafa0fc37ce?auto=format&fit=crop&q=80" loading="lazy" class="w-full h-full object-cover">
                 </div>
             </section>
 
@@ -939,14 +949,14 @@
 
                 <div class="project-media grid grid-cols-1 lg:grid-cols-12 gap-6">
                     <div class="img-zoom-container aspect-[16/9] lg:aspect-auto lg:h-full bg-fashion-4 col-span-1 lg:col-span-8">
-                        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80" loading="lazy" class="w-full h-full object-cover">
                     </div>
                     <div class="col-span-1 lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-6">
                         <div class="img-zoom-container aspect-square w-full bg-fashion-4">
-                            <img src="https://images.unsplash.com/photo-1520975954732-57dd22299614?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1520975954732-57dd22299614?auto=format&fit=crop&q=80" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="img-zoom-container aspect-square w-full bg-fashion-4">
-                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80" loading="lazy" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
@@ -968,10 +978,10 @@
 
                 <div class="project-media grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
                     <div class="img-zoom-container aspect-square bg-neutral-900">
-                         <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
+                         <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&q=80" loading="lazy" class="w-full h-full object-cover">
                     </div>
                     <div class="img-zoom-container aspect-square bg-neutral-900">
-                         <img src="https://images.unsplash.com/photo-1614850715649-1d0106293cb1?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
+                         <img src="https://images.unsplash.com/photo-1614850715649-1d0106293cb1?auto=format&fit=crop&q=80" loading="lazy" class="w-full h-full object-cover">
                     </div>
                 </div>
             </section>
@@ -992,10 +1002,10 @@
 
                 <div class="project-media grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
                     <div class="img-zoom-container aspect-[4/5] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1550507992-eb63ffee0224?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1550507992-eb63ffee0224?auto=format&fit=crop&q=80" loading="lazy" class="w-full h-full object-cover">
                     </div>
                     <div class="img-zoom-container aspect-[4/5] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&q=80" loading="lazy" class="w-full h-full object-cover">
                     </div>
                 </div>
             </section>
@@ -1016,13 +1026,13 @@
 
                 <div class="project-media grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
                     <div class="img-zoom-container aspect-[3/4] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1582793988951-9aed5509eb97?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1582793988951-9aed5509eb97?auto=format&fit=crop&q=80" loading="lazy" class="w-full h-full object-cover">
                     </div>
                     <div class="img-zoom-container aspect-[3/4] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?auto=format&fit=crop&q=80" loading="lazy" class="w-full h-full object-cover">
                     </div>
                     <div class="img-zoom-container aspect-[3/4] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?auto=format&fit=crop&q=80" loading="lazy" class="w-full h-full object-cover">
                     </div>
                 </div>
             </section>
@@ -1042,7 +1052,7 @@
                 </div>
 
                 <div class="project-media aspect-video bg-neutral-800 rounded-sm img-zoom-container relative">
-                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80" loading="lazy" class="w-full h-full object-cover">
                     <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                          <div class="border border-white text-white px-3 sm:px-4 py-2 text-[10px] sm:text-xs uppercase tracking-widest backdrop-blur-sm bg-black/30 rounded-sm">Drag to Navigate</div>
                     </div>
@@ -1088,7 +1098,7 @@
     <div id="booking-view" class="hidden">
         <nav class="fixed w-full z-50 mix-blend-difference py-4 sm:py-5 md:py-6 px-4 sm:px-6 md:px-12 flex justify-between items-center transition-all duration-300" id="navbar-booking">
             <a href="#" onclick="switchView('home'); return false;" class="inline-block transition-transform hover:scale-105 min-h-[48px] flex items-center">
-                <img src="Apixelizelogo.png" alt="Apixelize Logo" class="h-14 md:h-16 lg:h-20 w-auto object-contain">
+                <img src="Apixelizelogo.png" alt="Apixelize Logo" loading="lazy" class="h-14 md:h-16 lg:h-20 w-auto object-contain">
             </a>
             <div class="flex gap-4 sm:gap-8 text-sm font-medium uppercase tracking-widest text-gray-300">
                 <a href="#" onclick="switchView('home'); return false;" class="inline-flex px-4 sm:px-6 py-2 border border-white/20 text-white text-[10px] sm:text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors rounded-full font-medium items-center gap-2 min-h-[48px]">
@@ -1265,7 +1275,7 @@
         </button>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 
     <script>
         // --- Single Page Application (SPA) Logic ---
@@ -1321,228 +1331,10 @@
             }
         }
 
-        // --- Initialize Icons ---
-        lucide.createIcons();
-
-        // --- Scroll Effect for Navbars ---
-        window.addEventListener('scroll', () => {
-            const navHome = document.getElementById('navbar-home');
-            const navPort = document.getElementById('navbar-portfolio');
-            const navBooking = document.getElementById('navbar-booking');
-            
-            if (window.scrollY > 50) {
-                if(navHome) navHome.classList.add('bg-black/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
-                if(navPort) navPort.classList.add('bg-black/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
-                if(navBooking) navBooking.classList.add('bg-black/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
-            } else {
-                if(navHome) navHome.classList.remove('bg-black/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
-                if(navPort) navPort.classList.remove('bg-black/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
-                if(navBooking) navBooking.classList.remove('bg-black/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
-            }
-        });
-
-        // --- Intersection Observer for Portfolio Reveals ---
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // --- Booking Form Submit & Dynamic Industry Logic ---
-        const industryRadios = document.querySelectorAll('input[name="industry"]');
-        const otherInput = document.getElementById("other-industry");
-
-        if (industryRadios.length > 0 && otherInput) {
-            industryRadios.forEach(radio => {
-                radio.addEventListener("change", () => {
-                    if (radio.value === "Other" && radio.checked) {
-                        otherInput.classList.remove("hidden");
-                        otherInput.setAttribute("required", "true");
-                    } else {
-                        otherInput.classList.add("hidden");
-                        otherInput.removeAttribute("required");
-                        otherInput.value = "";
-                    }
-                });
-            });
-        }
-
-        const endpoint = "https://script.google.com/macros/s/AKfycbyQ0yffhfABN8FXpUPbQx16g45Uo_R5c5sgXgE_4O9O1KnryZVjV4xqKQtRaG3Y-7-wsQ/exec";
-        const form = document.getElementById("booking-form");
-        const success = document.getElementById("booking-success");
-        let submitting = false;
-
-        if (form) {
-            form.addEventListener("submit", async function(e) {
-                e.preventDefault();
-
-                if (submitting) return;
-                submitting = true;
-
-                const submitBtn = form.querySelector("button[type='submit']");
-                const originalText = submitBtn.innerText;
-                submitBtn.innerText = "Submitting...";
-                submitBtn.disabled = true;
-
-                let industryVal = form.querySelector('input[name="industry"]:checked')?.value || "";
-                if (industryVal === "Other") {
-                    industryVal = document.getElementById("other-industry").value;
-                }
-
-                const data = {
-                    name: form.querySelector('input[type="text"]').value,
-                    website: form.querySelectorAll('input[type="url"]')[0]?.value || "",
-                    social: form.querySelectorAll('input[type="url"]')[1]?.value || "",
-                    industry: industryVal,
-                    revenue: form.querySelector('input[name="revenue"]:checked')?.nextElementSibling.textContent || "",
-                    adspend: form.querySelector('input[name="adspend"]:checked')?.nextElementSibling.textContent || "",
-                    stage: form.querySelector('input[name="stage"]:checked')?.nextElementSibling.textContent || "",
-                    services: [...form.querySelectorAll('input[name="services"]:checked')].map(el => el.nextElementSibling.textContent).join(", "),
-                    budget: form.querySelector('input[name="budget"]:checked')?.nextElementSibling.textContent || "",
-                    about: form.querySelector("textarea")?.value || "",
-                    mobile: form.querySelector('input[name="mobile"]')?.value || "",
-                    time: form.querySelector('input[name="time"]:checked')?.nextElementSibling.textContent || ""
-                };
-
-                console.log("Lead data:", data);
-
-                try {
-                    const controller = new AbortController();
-                    const timeout = setTimeout(() => controller.abort(), 8000);
-
-                    await fetch(endpoint, {
-                        method: "POST",
-                        body: JSON.stringify(data),
-                        signal: controller.signal
-                    });
-
-                    clearTimeout(timeout);
-
-                    form.classList.add("hidden");
-                    success.classList.remove("hidden");
-                    window.scrollTo({top: 0, behavior: 'smooth'});
-
-                } catch (err) {
-                    console.error("Submission failed:", err);
-                    alert("Something went wrong submitting the form. Please try again.");
-
-                    submitBtn.innerText = originalText;
-                    submitBtn.disabled = false;
-                    submitting = false;
-                }
-            });
-        }
-
-        // --- Founder Parallax Effect ---
-        const founderImg = document.querySelector('#about img');
-        if (founderImg && founderImg.parentElement) {
-            founderImg.parentElement.addEventListener('mousemove', (e) => {
-                const rect = founderImg.parentElement.getBoundingClientRect();
-                const x = (e.clientX - rect.left) / rect.width - 0.5;
-                const y = (e.clientY - rect.top) / rect.height - 0.5;
-                
-                founderImg.style.transform = `scale(1.05) rotateX(${y * 6}deg) rotateY(${x * -6}deg)`;
-            });
-
-            founderImg.parentElement.addEventListener('mouseleave', () => {
-                founderImg.style.transform = "scale(1) rotateX(0deg) rotateY(0deg)";
-            });
-        }
-
-        // --- 3D Background Logic ---
-        const initThreeJS = () => {
-            const container = document.getElementById('canvas-container');
-            if(!container) return;
-            
-            const scene = new THREE.Scene();
-            
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 30;
-
-            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(window.devicePixelRatio);
-            container.appendChild(renderer.domElement);
-
-            const particleGeometry = new THREE.BufferGeometry();
-            const particleCount = window.innerWidth < 768 ? 800 : 1500; // Optimize particles for mobile
-            const posArray = new Float32Array(particleCount * 3);
-
-            for(let i = 0; i < particleCount * 3; i++) {
-                posArray[i] = (Math.random() - 0.5) * 100;
-            }
-
-            particleGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-            const particleMaterial = new THREE.PointsMaterial({
-                size: 0.05, color: 0xffffff, transparent: true, opacity: 0.4, blending: THREE.AdditiveBlending
-            });
-
-            const particles = new THREE.Points(particleGeometry, particleMaterial);
-            scene.add(particles);
-
-            const shapeGeometry = new THREE.IcosahedronGeometry(12, 1);
-            const shapeMaterial = new THREE.MeshBasicMaterial({
-                color: 0x404040, wireframe: true, transparent: true, opacity: 0.15
-            });
-            const shape = new THREE.Mesh(shapeGeometry, shapeMaterial);
-            scene.add(shape);
-
-            let mouseX = 0, mouseY = 0, targetX = 0, targetY = 0;
-            const windowHalfX = window.innerWidth / 2;
-            const windowHalfY = window.innerHeight / 2;
-
-            document.addEventListener('mousemove', (event) => {
-                mouseX = (event.clientX - windowHalfX);
-                mouseY = (event.clientY - windowHalfY);
-            });
-
-            // Fallback touch movement for shape
-            document.addEventListener('touchmove', (event) => {
-                if(event.touches.length > 0) {
-                    mouseX = (event.touches[0].clientX - windowHalfX);
-                    mouseY = (event.touches[0].clientY - windowHalfY);
-                }
-            }, {passive: true});
-
-            const animate = () => {
-                requestAnimationFrame(animate);
-                targetX = mouseX * 0.001;
-                targetY = mouseY * 0.001;
-
-                shape.rotation.x += 0.001;
-                shape.rotation.y += 0.001;
-                particles.rotation.y += 0.0005;
-                particles.rotation.x += 0.0002;
-
-                shape.rotation.y += 0.05 * (targetX - shape.rotation.y);
-                shape.rotation.x += 0.05 * (targetY - shape.rotation.x);
-
-                renderer.render(scene, camera);
-            };
-
-            animate();
-
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-        };
-        initThreeJS();
-
-        // --- Chatbot Interactive Logic ---
-        const chatToggle = document.getElementById('chat-toggle');
-        const chatClose = document.getElementById('chat-close');
-        const chatWindow = document.getElementById('chat-window');
-        const chatMessages = document.getElementById('chat-messages');
-        const chatInput = document.getElementById('chat-input');
-        const chatSendBtn = document.getElementById('chat-send-btn');
-
+        // --- Chatbot Interactive Logic Global Functions ---
         function toggleChatWidget() {
+            const chatWindow = document.getElementById('chat-window');
+            const chatInput = document.getElementById('chat-input');
             if (chatWindow.classList.contains('show')) {
                 chatWindow.classList.remove('show');
                 setTimeout(() => chatWindow.style.display = 'none', 300);
@@ -1555,23 +1347,23 @@
             }
         }
 
-        chatToggle.addEventListener('click', toggleChatWidget);
-        chatClose.addEventListener('click', toggleChatWidget);
-
         function scrollChatToBottom() {
+            const chatMessages = document.getElementById('chat-messages');
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
         function appendMessage(text, senderClass) {
+            const chatMessages = document.getElementById('chat-messages');
             const msgDiv = document.createElement('div');
             msgDiv.className = `chat-msg ${senderClass}`;
             msgDiv.innerHTML = text.replace(/\n/g, '<br>');
             chatMessages.appendChild(msgDiv);
             scrollChatToBottom();
-            lucide.createIcons();
+            if (typeof lucide !== 'undefined') lucide.createIcons();
         }
 
         function showThinkingIndicator() {
+            const chatMessages = document.getElementById('chat-messages');
             const msgDiv = document.createElement('div');
             msgDiv.className = 'chat-msg bot';
             msgDiv.id = 'thinking-indicator';
@@ -1628,6 +1420,7 @@
         }
 
         function processUserMessage() {
+            const chatInput = document.getElementById('chat-input');
             const userText = chatInput.value.trim();
             if (!userText) return;
 
@@ -1643,13 +1436,243 @@
             }, 1000); // 1 second thinking delay
         }
 
-        chatSendBtn.addEventListener('click', processUserMessage);
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                processUserMessage();
-            }
-        });
+        // --- Wrap execution logic inside DOMContentLoaded to wait for deferred scripts ---
+        document.addEventListener('DOMContentLoaded', () => {
 
+            // --- Initialize Icons ---
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            // --- Scroll Effect for Navbars ---
+            window.addEventListener('scroll', () => {
+                const navHome = document.getElementById('navbar-home');
+                const navPort = document.getElementById('navbar-portfolio');
+                const navBooking = document.getElementById('navbar-booking');
+                
+                if (window.scrollY > 50) {
+                    if(navHome) navHome.classList.add('bg-black/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
+                    if(navPort) navPort.classList.add('bg-black/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
+                    if(navBooking) navBooking.classList.add('bg-black/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
+                } else {
+                    if(navHome) navHome.classList.remove('bg-black/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
+                    if(navPort) navPort.classList.remove('bg-black/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
+                    if(navBooking) navBooking.classList.remove('bg-black/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
+                }
+            });
+
+            // --- Intersection Observer for Portfolio Reveals ---
+            const observerOptions = { threshold: 0.1 };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+            // --- Booking Form Submit & Dynamic Industry Logic ---
+            const industryRadios = document.querySelectorAll('input[name="industry"]');
+            const otherInput = document.getElementById("other-industry");
+
+            if (industryRadios.length > 0 && otherInput) {
+                industryRadios.forEach(radio => {
+                    radio.addEventListener("change", () => {
+                        if (radio.value === "Other" && radio.checked) {
+                            otherInput.classList.remove("hidden");
+                            otherInput.setAttribute("required", "true");
+                        } else {
+                            otherInput.classList.add("hidden");
+                            otherInput.removeAttribute("required");
+                            otherInput.value = "";
+                        }
+                    });
+                });
+            }
+
+            const endpoint = "https://script.google.com/macros/s/AKfycbyQ0yffhfABN8FXpUPbQx16g45Uo_R5c5sgXgE_4O9O1KnryZVjV4xqKQtRaG3Y-7-wsQ/exec";
+            const form = document.getElementById("booking-form");
+            const success = document.getElementById("booking-success");
+            let submitting = false;
+
+            if (form) {
+                form.addEventListener("submit", async function(e) {
+                    e.preventDefault();
+
+                    if (submitting) return;
+                    submitting = true;
+
+                    const submitBtn = form.querySelector("button[type='submit']");
+                    const originalText = submitBtn.innerText;
+                    submitBtn.innerText = "Submitting...";
+                    submitBtn.disabled = true;
+
+                    let industryVal = form.querySelector('input[name="industry"]:checked')?.value || "";
+                    if (industryVal === "Other") {
+                        industryVal = document.getElementById("other-industry").value;
+                    }
+
+                    const data = {
+                        name: form.querySelector('input[type="text"]').value,
+                        website: form.querySelectorAll('input[type="url"]')[0]?.value || "",
+                        social: form.querySelectorAll('input[type="url"]')[1]?.value || "",
+                        industry: industryVal,
+                        revenue: form.querySelector('input[name="revenue"]:checked')?.nextElementSibling.textContent || "",
+                        adspend: form.querySelector('input[name="adspend"]:checked')?.nextElementSibling.textContent || "",
+                        stage: form.querySelector('input[name="stage"]:checked')?.nextElementSibling.textContent || "",
+                        services: [...form.querySelectorAll('input[name="services"]:checked')].map(el => el.nextElementSibling.textContent).join(", "),
+                        budget: form.querySelector('input[name="budget"]:checked')?.nextElementSibling.textContent || "",
+                        about: form.querySelector("textarea")?.value || "",
+                        mobile: form.querySelector('input[name="mobile"]')?.value || "",
+                        time: form.querySelector('input[name="time"]:checked')?.nextElementSibling.textContent || ""
+                    };
+
+                    console.log("Lead data:", data);
+
+                    try {
+                        const controller = new AbortController();
+                        const timeout = setTimeout(() => controller.abort(), 8000);
+
+                        await fetch(endpoint, {
+                            method: "POST",
+                            body: JSON.stringify(data),
+                            signal: controller.signal
+                        });
+
+                        clearTimeout(timeout);
+
+                        form.classList.add("hidden");
+                        success.classList.remove("hidden");
+                        window.scrollTo({top: 0, behavior: 'smooth'});
+
+                    } catch (err) {
+                        console.error("Submission failed:", err);
+                        alert("Something went wrong submitting the form. Please try again.");
+
+                        submitBtn.innerText = originalText;
+                        submitBtn.disabled = false;
+                        submitting = false;
+                    }
+                });
+            }
+
+            // --- Founder Parallax Effect ---
+            const founderImg = document.querySelector('#about img');
+            if (founderImg && founderImg.parentElement) {
+                founderImg.parentElement.addEventListener('mousemove', (e) => {
+                    const rect = founderImg.parentElement.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width - 0.5;
+                    const y = (e.clientY - rect.top) / rect.height - 0.5;
+                    
+                    founderImg.style.transform = `scale(1.05) rotateX(${y * 6}deg) rotateY(${x * -6}deg)`;
+                });
+
+                founderImg.parentElement.addEventListener('mouseleave', () => {
+                    founderImg.style.transform = "scale(1) rotateX(0deg) rotateY(0deg)";
+                });
+            }
+
+            // --- 3D Background Logic ---
+            const initThreeJS = () => {
+                if (typeof THREE === 'undefined') return;
+                const container = document.getElementById('canvas-container');
+                if(!container) return;
+                
+                const scene = new THREE.Scene();
+                
+                const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                camera.position.z = 30;
+
+                const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.setPixelRatio(window.devicePixelRatio);
+                container.appendChild(renderer.domElement);
+
+                const particleGeometry = new THREE.BufferGeometry();
+                const particleCount = window.innerWidth < 768 ? 800 : 1500; // Optimize particles for mobile
+                const posArray = new Float32Array(particleCount * 3);
+
+                for(let i = 0; i < particleCount * 3; i++) {
+                    posArray[i] = (Math.random() - 0.5) * 100;
+                }
+
+                particleGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+                const particleMaterial = new THREE.PointsMaterial({
+                    size: 0.05, color: 0xffffff, transparent: true, opacity: 0.4, blending: THREE.AdditiveBlending
+                });
+
+                const particles = new THREE.Points(particleGeometry, particleMaterial);
+                scene.add(particles);
+
+                const shapeGeometry = new THREE.IcosahedronGeometry(12, 1);
+                const shapeMaterial = new THREE.MeshBasicMaterial({
+                    color: 0x404040, wireframe: true, transparent: true, opacity: 0.15
+                });
+                const shape = new THREE.Mesh(shapeGeometry, shapeMaterial);
+                scene.add(shape);
+
+                let mouseX = 0, mouseY = 0, targetX = 0, targetY = 0;
+                const windowHalfX = window.innerWidth / 2;
+                const windowHalfY = window.innerHeight / 2;
+
+                document.addEventListener('mousemove', (event) => {
+                    mouseX = (event.clientX - windowHalfX);
+                    mouseY = (event.clientY - windowHalfY);
+                });
+
+                // Fallback touch movement for shape
+                document.addEventListener('touchmove', (event) => {
+                    if(event.touches.length > 0) {
+                        mouseX = (event.touches[0].clientX - windowHalfX);
+                        mouseY = (event.touches[0].clientY - windowHalfY);
+                    }
+                }, {passive: true});
+
+                const animate = () => {
+                    requestAnimationFrame(animate);
+                    targetX = mouseX * 0.001;
+                    targetY = mouseY * 0.001;
+
+                    shape.rotation.x += 0.001;
+                    shape.rotation.y += 0.001;
+                    particles.rotation.y += 0.0005;
+                    particles.rotation.x += 0.0002;
+
+                    shape.rotation.y += 0.05 * (targetX - shape.rotation.y);
+                    shape.rotation.x += 0.05 * (targetY - shape.rotation.x);
+
+                    renderer.render(scene, camera);
+                };
+
+                animate();
+
+                window.addEventListener('resize', () => {
+                    camera.aspect = window.innerWidth / window.innerHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                });
+            };
+            initThreeJS();
+
+            // --- Chat Event Listeners ---
+            const chatToggle = document.getElementById('chat-toggle');
+            const chatClose = document.getElementById('chat-close');
+            const chatInput = document.getElementById('chat-input');
+            const chatSendBtn = document.getElementById('chat-send-btn');
+
+            if(chatToggle) chatToggle.addEventListener('click', toggleChatWidget);
+            if(chatClose) chatClose.addEventListener('click', toggleChatWidget);
+            if(chatSendBtn) chatSendBtn.addEventListener('click', processUserMessage);
+            if(chatInput) {
+                chatInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        processUserMessage();
+                    }
+                });
+            }
+
+        }); // End of DOMContentLoaded
     </script>
 </body>
 </html>
