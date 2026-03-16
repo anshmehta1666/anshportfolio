@@ -327,7 +327,7 @@
     <div id="home-view" class="block">
         
         <nav class="fixed w-full z-50 mix-blend-difference py-4 sm:py-5 md:py-6 px-4 sm:px-6 md:px-12 flex justify-between items-center transition-all duration-300" id="navbar-home">
-            <a href="#" onclick="window.scrollTo(0,0); return false;" class="inline-block transition-transform hover:scale-105 min-h-[48px] flex items-center">
+            <a href="#" onclick="switchView('home'); return false;" class="inline-block transition-transform hover:scale-105 min-h-[48px] flex items-center">
                 <img src="Apixelizelogo.png" alt="Apixelize Logo" loading="lazy" class="h-14 md:h-16 lg:h-20 w-auto object-contain">
             </a>
             <div class="hidden md:flex gap-8 text-sm font-medium uppercase tracking-widest text-gray-300">
@@ -1355,8 +1355,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 
     <script>
-        // --- Single Page Application (SPA) Logic ---
-        function switchView(viewName, scrollToId = null) {
+        // --- Upgraded Single Page Application (SPA) Logic ---
+        function switchView(viewName, scrollToId = null, skipHistory = false) {
             const homeView = document.getElementById('home-view');
             const portfolioView = document.getElementById('portfolio-view');
             const bookingView = document.getElementById('booking-view');
@@ -1373,14 +1373,19 @@
                 bookingView.classList.remove('block');
             }
 
+            // Determine path for history
+            let newPath = '/';
+
             // Show requested view
             if (viewName === 'portfolio') {
                 portfolioView.classList.remove('hidden');
                 portfolioView.classList.add('block');
+                newPath = '/selectedwork';
                 window.scrollTo(0, 0);
             } else if (viewName === 'booking') {
                 bookingView.classList.remove('hidden');
                 bookingView.classList.add('block');
+                newPath = '/bookslot';
                 window.scrollTo(0, 0);
                 
                 // Reset form state if they revisit the page
@@ -1397,16 +1402,43 @@
             } else if (viewName === 'home') {
                 homeView.classList.remove('hidden');
                 homeView.classList.add('block');
+                newPath = '/';
                 
                 if (scrollToId) {
                     setTimeout(() => {
-                        document.getElementById(scrollToId).scrollIntoView({ behavior: 'smooth' });
+                        const target = document.getElementById(scrollToId);
+                        if(target) target.scrollIntoView({ behavior: 'smooth' });
                     }, 100);
                 } else {
                     window.scrollTo(0, 0);
                 }
             }
+
+            // Update the URL without reloading the page
+            if (!skipHistory) {
+                window.history.pushState({ view: viewName, scrollTo: scrollToId }, '', newPath);
+            }
         }
+
+        // --- Initial Route Detection & Browser Back/Forward Handling ---
+        function handleRouting() {
+            const path = window.location.pathname;
+            
+            if (path === '/selectedwork' || path === '/selectedwork/') {
+                switchView('portfolio', null, true);
+            } else if (path === '/bookslot' || path === '/bookslot/') {
+                switchView('booking', null, true);
+            } else {
+                // Default to home. If there's a hash (e.g., /#contact), scroll to it
+                const hash = window.location.hash.substring(1); 
+                switchView('home', hash || null, true);
+            }
+        }
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', (event) => {
+            handleRouting();
+        });
 
         // --- Chatbot Interactive Logic Global Functions ---
         function toggleChatWidget() {
@@ -1515,6 +1547,8 @@
 
         // --- Wrap execution logic inside DOMContentLoaded to wait for deferred scripts ---
         document.addEventListener('DOMContentLoaded', () => {
+
+            handleRouting(); // Added routing logic call right when the page loads
 
             // --- Initialize Icons ---
             if (typeof lucide !== 'undefined') {
@@ -1760,5 +1794,22 @@
 
         }); // End of DOMContentLoaded
     </script>
+    <script>
+function handleRoute() {
+  const path = window.location.pathname;
+
+  if (path === "/selectedwork") {
+    switchView("portfolio");
+  } 
+  else if (path === "/bookslot") {
+    switchView("booking");
+  } 
+  else {
+    switchView("home");
+  }
+}
+
+window.addEventListener("load", handleRoute);
+</script>
 </body>
 </html>
